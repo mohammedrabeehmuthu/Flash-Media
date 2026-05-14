@@ -1,0 +1,114 @@
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-accent: #0b0f16;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #555555;
+  --accent: #00C6FF; /* Cyan from logo */
+  --accent-dark: #5B58F2; /* Purple/Blue from logo */
+  
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --section-padding: clamp(3rem, 8vw, 5rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(circle at 50% 0%, var(--bg-accent) 0%, var(--bg-primary) 70%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.text-massive {
+  font-size: clamp(3.5rem, 8vw + 1rem, 12rem);
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+
+.text-huge {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.text-large {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.section-container {
+  padding: var(--section-padding) 5%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.glass-panel {
+  background: rgba(17, 17, 17, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blend-image {
+  mix-blend-mode: screen;
+}
+
+.back-link:hover {
+  transform: translateX(-5px);
+  color: var(--text-primary) !important;
+}

@@ -1,0 +1,123 @@
+.works-section {
+  position: relative;
+  z-index: 5;
+  padding-bottom: 10rem;
+}
+
+.works-header {
+  margin-bottom: 4rem;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  gap: 1.5rem;
+}
+
+.bento-item {
+  position: relative;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  background: rgba(25, 25, 25, 0.4);
+}
+
+.bento-item:hover {
+  transform: scale(0.98);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(35, 35, 35, 0.6);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Grid Spans */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+
+.row-span-1 { grid-row: span 1; }
+.row-span-2 { grid-row: span 2; }
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+  .col-span-2, .row-span-2 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+.bento-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.bento-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto; /* Pushes the rest to the bottom */
+  transition: var(--transition-smooth);
+}
+
+.bento-item:hover .bento-icon-wrapper {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.bento-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.bento-type {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  color: var(--text-primary);
+  z-index: 1;
+}
+
+.bento-item:hover .play-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.bento-item:hover .bento-content {
+  opacity: 0.2;
+}
