@@ -93,14 +93,22 @@ const worksData = [
 const Works = () => {
   const [activeVideo, setActiveVideo] = useState(null);
 
-  const renderInstagramCard = (link, idx) => (
-    <a key={idx} href={link.url || link} target="_blank" rel="noopener noreferrer" className="media-card ig-card">
-      <div className="ig-overlay">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        <span>View on Instagram</span>
+  const renderInstagramCard = (link, idx) => {
+    const url = link.url || link;
+    const embedUrl = url.split('?')[0].replace(/\/$/, '') + '/embed';
+    return (
+      <div key={idx} className="media-card ig-embed-card">
+        <iframe 
+          src={embedUrl} 
+          width="100%" 
+          height="100%" 
+          frameBorder="0" 
+          scrolling="no" 
+          allowTransparency="true"
+        ></iframe>
       </div>
-    </a>
-  );
+    );
+  };
 
   const renderYoutubeCard = (link, idx) => {
     const url = link.url || link;
@@ -127,7 +135,7 @@ const Works = () => {
             
             if (section.type === 'redirect') {
               return (
-                <a href={section.url} target="_blank" rel="noopener noreferrer" className="bento-section redirect-box" key={section.id}>
+                <div className="bento-section" key={section.id}>
                   <div className="section-header">
                     <div className="icon-box"><Icon size={28} /></div>
                     <div>
@@ -135,8 +143,11 @@ const Works = () => {
                       <span className="subtitle">{section.subtitle}</span>
                     </div>
                   </div>
-                  <p>{section.desc}</p>
-                </a>
+                  <p className="section-desc" style={{ marginBottom: '2rem' }}>{section.desc}</p>
+                  <a href={section.url} target="_blank" rel="noopener noreferrer" className="secondary-cta" style={{ display: 'inline-flex', padding: '0.8rem 2rem', fontSize: '1rem', textDecoration: 'none' }}>
+                    View The Works
+                  </a>
+                </div>
               );
             }
 

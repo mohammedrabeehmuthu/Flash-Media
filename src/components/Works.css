@@ -133,30 +133,20 @@
   transform: scale(1);
 }
 
-.ig-card {
-  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-smooth);
+.ig-embed-card {
+  aspect-ratio: unset;
+  height: 520px;
+  background: var(--bg-primary);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
-.ig-overlay {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  color: white;
-}
-
-.ig-overlay span {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.ig-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(193, 53, 132, 0.4);
+.ig-embed-card iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
 }
 
 .lightbox-overlay {
