@@ -16,7 +16,7 @@ const Hero = () => {
     <section ref={containerRef} className="hero-section">
       <motion.div 
         className="hero-bg" 
-        style={{ y, backgroundImage: `url('/hero-studio-v2.png')` }}
+        style={{ y, backgroundImage: `url('/hero-section.jpg')` }}
       />
       <div className="hero-overlay" />
       <div className="hero-content section-container">
