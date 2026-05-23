@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import StudioGallery from '../components/StudioGallery';
 import About from '../components/About';
 import Services from '../components/Services';
 import Footer from '../components/Footer';
@@ -9,6 +10,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <Hero />
+      <StudioGallery />
       <About />
       <Services />
       <Footer />
