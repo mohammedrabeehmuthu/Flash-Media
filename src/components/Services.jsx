@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MicVocal, RadioTower, Camera, Box, Video, Clapperboard, MonitorPlay, TrendingUp, Share2, PenTool, LayoutGrid, Sliders } from 'lucide-react';
+import { MicVocal, RadioTower, Camera, Box, Video, Clapperboard, MonitorPlay, TrendingUp, Share2, PenTool, LayoutGrid, Sliders, Code } from 'lucide-react';
 import './Services.css';
 
 const services = [
@@ -16,7 +16,8 @@ const services = [
   { id: 9, title: 'Social Media Management', icon: Share2, desc: 'Your brand’s voice, amplified. We handle the daily grind of content scheduling, community engagement, and trend analysis, ensuring your social profiles remain active, aesthetic, and influential.' },
   { id: 10, title: 'Graphic Designing', icon: PenTool, desc: 'Visual communication that sticks. From minimalist logos to complex brand identities, our design team creates high-contrast, modern visuals that define your business across all mediums.' },
   { id: 11, title: 'LED Wall Solution', icon: LayoutGrid, desc: 'Immersive visuals on a grand scale. We provide high-refresh-rate LED walls for events and stages, offering vibrant clarity and seamless integration to ensure your content is seen from every corner of the room.' },
-  { id: 12, title: 'Live Audio Mixing', icon: Sliders, desc: 'Precision sound for live environments. Our engineers ensure crystal-clear audio balance for stage shows and events, managing everything from wireless frequencies to complex soundscapes with professional finesse.' }
+  { id: 12, title: 'Live Audio Mixing', icon: Sliders, desc: 'Precision sound for live environments. Our engineers ensure crystal-clear audio balance for stage shows and events, managing everything from wireless frequencies to complex soundscapes with professional finesse.' },
+  { id: 13, title: 'Website Development', icon: Code, desc: 'Build your digital storefront. We design and develop fast, responsive, and visually stunning websites that elevate your brand and provide seamless user experiences across all devices.' }
 ];
 
 const Services = () => {

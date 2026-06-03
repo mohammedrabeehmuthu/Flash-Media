@@ -2,25 +2,46 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { EffectFade, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import './StudioGallery.css';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
+import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// All images converted to webp
-const images = [
+const landscapeImages = [
   'DSC00142.webp', 'DSC00153.webp', 'DSC00155.webp', 'DSC00193.webp',
-  'DSC00216.webp', 'DSC00226.webp', 'DSC00306.webp', 'DSC00308.webp',
-  'DSC00323.webp', 'DSC00324.webp', 'DSC00325.webp', 'DSC00340.webp',
-  'DSC00348.webp', 'DSC00355.webp', 'DSC00364.webp', 'DSC00444.webp',
-  'DSC00446.webp', 'DSC00570.webp', 'DSC00574.webp', 'DSC00575.webp',
-  'DSC00579.webp', 'DSC00582.webp', 'DSC00590.webp', 'DSC00601.webp',
-  'DSC00610.webp', 'DSC00622.webp', 'DSC00630.webp'
+  'DSC00306.webp', 'DSC00323.webp', 'DSC00364.webp', 'DSC00446.webp',
+  'DSC00630.webp'
 ];
+
+const portraitImages = [
+  'DSC00324.webp', 'DSC00340.webp', 'DSC00570.webp', 'DSC00582.webp',
+  'DSC00590.webp', 'DSC00601.webp', 'DSC00610.webp', 'DSC00622.webp'
+];
+
+const chunkArray = (array, size) => {
+  const chunks = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunks.push(array.slice(i, i + size));
+  }
+  return chunks;
+};
+
+// Create a combined array of slides (interleaved)
+const slides = [];
+const portraitChunks = chunkArray(portraitImages, 3);
+
+let lIndex = 0;
+let pIndex = 0;
+while (lIndex < landscapeImages.length || pIndex < portraitChunks.length) {
+  // Add 2 landscape slides, then 1 portrait group slide to interleave beautifully
+  if (lIndex < landscapeImages.length) slides.push({ type: 'landscape', src: landscapeImages[lIndex++] });
+  if (lIndex < landscapeImages.length) slides.push({ type: 'landscape', src: landscapeImages[lIndex++] });
+  if (pIndex < portraitChunks.length) slides.push({ type: 'portrait-group', images: portraitChunks[pIndex++] });
+}
 
 const StudioGallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -94,7 +115,7 @@ const StudioGallery = () => {
           <motion.div 
             className="sg-modal-overlay"
             initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(30px)' }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.4 }}
             onClick={() => setIsModalOpen(false)}
@@ -112,37 +133,40 @@ const StudioGallery = () => {
               transition={{ duration: 0.5 }}
             >
               <Swiper
-                effect={'coverflow'}
+                effect={'fade'}
+                fadeEffect={{ crossFade: true }}
+                speed={800} /* Smooth transition */
                 grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={'auto'}
-                initialSlide={3}
-                coverflowEffect={{
-                  rotate: 15,
-                  stretch: 0,
-                  depth: 250,
-                  modifier: 1.5,
-                  slideShadows: true,
-                }}
+                slidesPerView={1}
                 pagination={{
                   clickable: true,
                   dynamicBullets: true,
                 }}
                 navigation={true}
                 autoplay={{
-                  delay: 3500,
+                  delay: 4500,
                   disableOnInteraction: false,
                   pauseOnMouseEnter: true,
                 }}
-                modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                modules={[EffectFade, Pagination, Navigation, Autoplay]}
                 className="studio-swiper"
               >
-                {images.map((img, index) => (
-                  <SwiperSlide key={index} className="studio-slide">
-                    <div className="studio-slide-inner">
-                      <img src={`/Our Studio/${img}`} alt={`Flash Media Studio - ${index + 1}`} loading="lazy" />
-                      <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
+                {slides.map((slide, index) => (
+                  <SwiperSlide key={index} className="studio-slide-container">
+                    {slide.type === 'landscape' ? (
+                      <div className="landscape-slide">
+                        <img src={`/Our Studio/${slide.src}`} alt="Flash Media Studio" loading="lazy" />
+                        <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                      </div>
+                    ) : (
+                      <div className="portrait-grid-slide">
+                        {slide.images.map((img, i) => (
+                          <div key={i} className="portrait-item">
+                            <img src={`/Our Studio/${img}`} alt={`Flash Media Studio Detail ${i+1}`} loading="lazy" />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>
