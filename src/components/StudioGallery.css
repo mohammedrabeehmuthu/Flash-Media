@@ -1,5 +1,4 @@
 .studio-gallery-section {
-  padding: 6rem 0;
   position: relative;
   background-color: var(--bg-primary);
   text-align: center;
@@ -17,7 +16,7 @@
 .sg-heading {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   color: var(--text-primary);
   line-height: 1.2;
 }
@@ -25,10 +24,10 @@
 .sg-featured-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: 1200px;
-  margin: 0 auto 4rem;
-  padding: 0 2rem;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
 }
 
 .sg-featured-img {
