@@ -59,7 +59,7 @@ const StudioGallery = () => {
   const featured = ['DSC00570.webp', 'DSC00142.webp'];
 
   return (
-    <section className="studio-gallery-section">
+    <section id="studio" className="studio-gallery-section">
       <div className="section-container">
         <motion.p 
           className="sg-subheading"

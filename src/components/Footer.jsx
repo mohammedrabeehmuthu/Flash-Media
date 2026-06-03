@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -15,8 +16,9 @@ const Footer = () => {
         <div className="footer-links">
           <h4>Sitemap</h4>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/showcase">Showcase</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><a href="/#studio">Our Studio</a></li>
+            <li><Link to="/showcase">Our Works</Link></li>
           </ul>
         </div>
         
