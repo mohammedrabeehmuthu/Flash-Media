@@ -31,6 +31,7 @@ const Hero = () => {
             src="/logo.webp" 
             alt="Flash Media Logo"
             className="hero-logo"
+            loading="lazy"
           />
         </motion.div>
         <motion.h1 

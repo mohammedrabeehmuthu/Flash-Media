@@ -116,7 +116,7 @@ const Works = () => {
     if (!videoId) return null;
     return (
       <div key={idx} className="media-card yt-card" onClick={() => setActiveVideo(videoId)}>
-        <img src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} alt="Thumbnail" />
+        <img src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} alt="Thumbnail" loading="lazy" />
         <div className="yt-overlay">
           <div className="play-btn"><Play size={24} fill="currentColor" /></div>
         </div>

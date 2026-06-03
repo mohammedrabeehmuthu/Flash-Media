@@ -40,6 +40,7 @@ const About = () => {
             alt="Professional Camera on Tripod"
             className="about-camera-asset blend-image"
             style={{ y: cameraY, rotate: cameraRotate }}
+            loading="lazy"
           />
         </div>
       </div>
