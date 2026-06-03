@@ -36,7 +36,7 @@ const About = () => {
         
         <div className="about-visual-container">
           <motion.img 
-            src="/camera-tripod.png" 
+            src="/camera-tripod.webp" 
             alt="Professional Camera on Tripod"
             className="about-camera-asset blend-image"
             style={{ y: cameraY, rotate: cameraRotate }}

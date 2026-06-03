@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer-section">
       <div className="section-container footer-grid">
         <div className="footer-brand">
-          <img src="/logo.png" alt="Flash Media Logo" className="footer-logo blend-image" />
+          <img src="/logo.webp" alt="Flash Media Logo" className="footer-logo blend-image" />
           <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem', marginTop: '0.5rem' }}>Flash Media</h3>
           <p className="text-large footer-desc">Complete Video & Audio Solution.</p>
         </div>

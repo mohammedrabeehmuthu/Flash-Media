@@ -16,7 +16,7 @@ const Hero = () => {
     <section ref={containerRef} className="hero-section">
       <motion.div 
         className="hero-bg" 
-        style={{ y, backgroundImage: `url('/hero-section.jpg')` }}
+        style={{ y, backgroundImage: `url('/hero-section.webp')` }}
       />
       <div className="hero-overlay" />
       <div className="hero-content section-container">
@@ -28,7 +28,7 @@ const Hero = () => {
           className="hero-logo-wrapper"
         >
           <img 
-            src="/logo.png" 
+            src="/logo.webp" 
             alt="Flash Media Logo"
             className="hero-logo"
           />
